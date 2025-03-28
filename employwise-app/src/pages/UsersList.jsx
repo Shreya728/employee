@@ -40,19 +40,20 @@ const Navbar = styled(Box)({
 const SearchContainer = styled(Box)({
   width: "100vw",
   backgroundColor: "rgba(255, 255, 255, 0.9)",
-  padding: "20px 10%",
+  padding: "15px 5%",
   display: "flex",
   alignItems: "center",
   boxShadow: "0px 2px 8px rgba(0,0,0,0.1)",
+  gap: "10px",
 });
 
 const GlassCard = styled(Card)({
   padding: "20px",
   borderRadius: "12px",
-  background: "rgba(255, 255, 255, 0.8)",
-  backdropFilter: "blur(10px)",
+  background: "rgba(255, 255, 255, 0.85)",
+  backdropFilter: "blur(12px)",
   boxShadow: "0px 4px 12px rgba(0,0,0,0.1)",
-  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+  transition: "all 0.3s ease",
   "&:hover": { transform: "scale(1.05)", boxShadow: "0px 6px 18px rgba(0,0,0,0.3)" },
 });
 
@@ -160,7 +161,7 @@ const UsersList = () => {
           fullWidth
           label="Search Users..."
           variant="outlined"
-          sx={{ marginLeft: 1, borderRadius: "8px", background: "white" }}
+          sx={{ borderRadius: "8px", background: "white" }}
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />

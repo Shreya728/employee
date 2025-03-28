@@ -1,8 +1,14 @@
 {
     "version": 2,
     "builds": [
-      { "src": "employwise-app/package.json", "use": "@vercel/static-build", "config": { "distDir": "employwise-app/dist" } }
+      {
+        "src": "employwise-app/package.json",
+        "use": "@vercel/static-build",
+        "config": { "distDir": "employwise-app/dist" }
+      }
     ],
-    "routes": [{ "src": "/(.*)", "dest": "employwise-app/$1" }]
+    "routes": [
+      { "src": "/(.*)", "dest": "/index.html" }
+    ]
   }
   

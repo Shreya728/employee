@@ -75,7 +75,7 @@ const Login = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <Typography variant="h4" fontWeight="bold" gutterBottom>
-              Welcome Back! 
+              Welcome Back! 👋
             </Typography>
           </motion.div>
 
