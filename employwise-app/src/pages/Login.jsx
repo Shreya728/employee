@@ -1,8 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Container, TextField, Button, Typography, Box, Paper, CircularProgress } from "@mui/material";
+import { TextField, Button, Typography, Paper, CircularProgress, Box } from "@mui/material";
 import { toast } from "react-toastify";
-import { motion } from "framer-motion"; // ✅ Animations
 
 const Login = () => {
   const [email, setEmail] = useState("eve.holt@reqres.in");
@@ -52,93 +51,63 @@ const Login = () => {
         background: "linear-gradient(135deg, #2196f3, #4caf50)",
       }}
     >
-      <motion.div
-        initial={{ opacity: 0, y: -30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+      <Paper
+        elevation={6}
+        sx={{
+          padding: "40px",
+          width: "100%",
+          maxWidth: "400px",
+          textAlign: "center",
+          borderRadius: "12px",
+          backgroundColor: "#ffffff",
+          boxShadow: "0px 6px 16px rgba(0,0,0,0.2)",
+        }}
       >
-        <Paper
-          elevation={6}
-          sx={{
-            padding: "40px",
-            width: "100%",
-            maxWidth: "400px",
-            textAlign: "center",
-            borderRadius: "12px",
-            backgroundColor: "#ffffff",
-            boxShadow: "0px 6px 16px rgba(0,0,0,0.2)",
-          }}
-        >
-          <motion.div
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+        <Typography variant="h4" fontWeight="bold" gutterBottom>
+          Welcome Back! 👋
+        </Typography>
+
+        <form onSubmit={handleLogin}>
+          <TextField
+            fullWidth
+            label="Email"
+            variant="outlined"
+            margin="normal"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
+
+          <TextField
+            fullWidth
+            label="Password"
+            type="password"
+            variant="outlined"
+            margin="normal"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            sx={{
+              marginTop: 2,
+              padding: "10px",
+              fontWeight: "bold",
+              transition: "all 0.3s ease",
+              "&:hover": {
+                transform: "translateY(-3px)",
+                boxShadow: "0px 6px 15px rgba(0,0,0,0.2)",
+              },
+            }}
+            disabled={loading}
           >
-            <Typography variant="h4" fontWeight="bold" gutterBottom>
-              Welcome Back! 👋
-            </Typography>
-          </motion.div>
-
-          <form onSubmit={handleLogin}>
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-            >
-              <TextField
-                fullWidth
-                label="Email"
-                variant="outlined"
-                margin="normal"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <TextField
-                fullWidth
-                label="Password"
-                type="password"
-                variant="outlined"
-                margin="normal"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-            >
-              <Button
-                type="submit"
-                variant="contained"
-                color="primary"
-                fullWidth
-                sx={{
-                  marginTop: 2,
-                  padding: "10px",
-                  fontWeight: "bold",
-                  transition: "all 0.3s ease",
-                  "&:hover": {
-                    transform: "translateY(-3px)",
-                    boxShadow: "0px 6px 15px rgba(0,0,0,0.2)",
-                  },
-                }}
-                disabled={loading}
-              >
-                {loading ? <CircularProgress size={24} color="inherit" /> : "Login"}
-              </Button>
-            </motion.div>
-          </form>
-        </Paper>
-      </motion.div>
+            {loading ? <CircularProgress size={24} color="inherit" /> : "Login"}
+          </Button>
+        </form>
+      </Paper>
     </Box>
   );
 };
